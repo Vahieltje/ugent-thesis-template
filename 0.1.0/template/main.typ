@@ -1,19 +1,25 @@
 #import "@local/ugent-thesis-template:0.1.0": thesis, acronyms, ugent-titlepage
 
-#ugent-titlepage(
+// #ugent-titlepage(
+//   title: "Higher order interactions",
+//   subtitle: "Your Thesis Subtitle",
+//   authors: ("Thomas Van Giel"),
+//   student_nrs: ("01501578"),
+//   promotors: ("Prof. dr. John Smith", "Prof. dr. Jane Smith"),
+//   // tutors: ("Dr. John Tutor", "Dr. Jane Tutor"),
+//   faculty: "Faculty of Bioscience Engineering",
+//   date: datetime.today().display("[month repr:long] [day], [year]")
+// )
+
+#show: thesis.with(
   title: "Higher order interactions",
   subtitle: "Your Thesis Subtitle",
   authors: ("Thomas Van Giel"),
   student_nrs: ("01501578"),
   promotors: ("Prof. dr. John Smith", "Prof. dr. Jane Smith"),
-  tutors: ("Dr. John Tutor", "Dr. Jane Tutor"),
+  // tutors: ("Dr. John Tutor", "Dr. Jane Tutor"),
+  show_titlepage: true,
   faculty: "Faculty of Bioscience Engineering",
-  date: datetime.today().display("[month repr:long] [day], [year]")
-)
-
-#show: thesis.with(
-  title: [A UGent Master's Dissertation Created Using Typst],
-  authors: ("John Doe",),
   font: "New Computer Modern"
 )
 

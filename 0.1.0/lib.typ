@@ -31,13 +31,12 @@
 #let ugent-titlepage(
   title: "<title>",
   subtitle: "<subtitle>",
-  pretitle: "Master’s Dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of <select master programme>",
+  post_title: "Master’s Dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of <select master programme>",
   authors: ("First name + last name author 1", "First name + last name author 2"),
   student_nrs: ("Student number 1", "Student number 2"),
   promotors: ("Prof. dr. First name + last name Promotor 1 ", "Prof. dr. First name + last name Promotor 2 "),
-  tutors: ("First name + last name tutor 1", "First name + last name tutor 2"),
+  tutors: none,
   faculty: "Faculty of Bioscience Engineering",
-  date: datetime.today().display("[month repr:long] [day], [year]"),
 ) = {
 
   set document(
@@ -157,16 +156,18 @@
     #text(
       size: 14pt,
       fill: black,
+      if tutors != none [
       "Tutor(s): " + single_or_array(tutors),
+      ]
     )
 
     #v(10mm)
     
-    // Pretitle
+    // post_title
       #text(
         size: 12pt,
         fill: black,
-        pretitle,
+        post_title,
       )
     
     #v(5mm)
@@ -187,13 +188,16 @@
 
 
 #let thesis(
-  // The title of this thesis [content]
-  title: none,
-  // the authors of this thesis [array of strings]
-  authors: none,
-  // the font that's used for the thesis [string]
+  title: "<title>",
+  subtitle: "<subtitle>",
+  post_title: "Master’s Dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of <select master programme>",
+  authors: ("First name + last name author 1", "First name + last name author 2"),
+  student_nrs: ("Student number 1", "Student number 2"),
+  promotors: ("Prof. dr. First name + last name Promotor 1 ", "Prof. dr. First name + last name Promotor 2 "),
+  tutors: none,
+  faculty: "Faculty of Bioscience Engineering",
+  show_titlepage: true,
   font: "UGent Panno Text",
-  // optionally align pagebreaks to odd pages [bool]
   body
 ) = {
   // title, authors are required (return clear error message if not given)
@@ -258,6 +262,19 @@
   set text(font: font)
   // don't break up words in justified text
   set text(hyphenate: false)
+
+  if show_titlepage [
+    #ugent-titlepage(
+      title: title,
+      subtitle: subtitle,
+      post_title: post_title,
+      authors: authors,
+      student_nrs: student_nrs,
+      promotors: promotors,
+      tutors: tutors,
+      faculty: faculty,
+    )
+  ]
 
   body
 }
