@@ -1,4 +1,4 @@
-#import "@local/ugent-thesis:0.1.0": thesis, acronyms, ugent-titlepage
+#import "@local/ugent-thesis-template:0.1.0": thesis, acronyms, ugent-titlepage
 
 #ugent-titlepage(
   title: "Higher order interactions",

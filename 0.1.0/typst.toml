@@ -1,5 +1,5 @@
 [package]
-name = "ugent-thesis"
+name = "ugent-thesis-template"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Cedric Meukens <@CedricMeu>", "Miel Peeters <@mielpeeters>"]

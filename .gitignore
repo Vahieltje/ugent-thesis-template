@@ -2,3 +2,4 @@
 *.pdf
 termpdf.log
 flake.lock
+sync.bat
